@@ -5,23 +5,82 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Inter", sans-serif;
-  color: #dcdcdc;
-  line-height: 1.6;
-  background-color: #1a1a1a;
+:root {
+  --primary-color: #292929;
+  --bg-color-light: #ffffff;
+  --text-color-light: #333333;
+  --header-bg-color-light: #f5f5f5;
+  --text-color-highlight: #00b068;
+
+  --bg-color-dark: #1a1a1a;
+  --text-color-dark: #dcdcdc;
+  --header-bg-color-dark: #2b2b2b;
+
+  /* Активні змінні для тем */
+  --bg-color: var(--bg-color-light);
+  --text-color: var(--text-color-light);
+  --header-bg-color: var(--header-bg-color-light);
+  --button-bg-color: var(--primary-color);
+  --button-text-color: #ffffff;
 }
 
+/* Темна тема */
+.dark-theme {
+  --bg-color: var(--bg-color-dark);
+  --text-color: var(--text-color-dark);
+  --header-bg-color: var(--header-bg-color-dark);
+}
+
+/* Основні стилі */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+}
+
+/* Стилі для заголовків */
 h1,
 h2,
 h3 {
-  color: #000;
+  color: var(--text-color);
   text-transform: uppercase;
-  /* color: #00b068; */
+  /* margin-bottom: 15px; */
 }
 
+h1 {
+  font-family: Impact, sans-serif;
+  color: var(--primary-color);
+  font-size: 64px;
+  font-weight: 700;
+  text-align: center;
+  max-width: 320px;
+  letter-spacing: 0.03em;
+  line-height: 1.25;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: Impact, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+ul {
+  display: flex;
+}
+
+/* Посилання */
 a {
-  color: #1a8f63;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -29,169 +88,307 @@ a:hover {
   text-decoration: underline;
 }
 
+/* Стилі для кнопок */
 .btn {
   display: inline-flex;
   align-items: center;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 10px;
 }
 
+.btn:hover {
+  background-color: #146c4a;
+}
+
+/* Кнопка для перемикання теми */
+.toggle-theme-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+
+.toggle-theme-btn:hover {
+  background-color: #146c4a;
+}
+
+/* Іконки */
 .icon {
   display: inline-flex;
-  margin-left: 8px; /* Відступ між текстом та іконкою */
+  margin-left: 8px;
 }
 
 .icon svg {
   width: 16px;
   height: 16px;
-  fill: currentColor; /* Іконка підлаштовується під колір тексту кнопки */
+  fill: currentColor;
 }
 
-/* Заголовок */
+/*  =====   header   ======  */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 header {
-  text-align: center;
+  background-color: var(--header-bg-color);
   padding: 20px;
-  background-color: #2b2b2b;
-}
-
-h1 {
-  font-size: 36px; /* Розмір для головного заголовка */
-  font-weight: 700; /* Жирний текст */
-  color: #000; /* Основний зелений колір */
   text-align: center;
-  margin-bottom: 15px;
-  text-transform: uppercase;
 }
 
-h1 .highlight {
-  color: #1a8f63; /* Інший колір для виділення слова "Fullstack Developer" */
+header h2 {
+  font-size: 32px;
+  color: var(--text-color);
+  letter-spacing: 0.05em;
+  line-height: 1;
 }
 
-header p {
-  font-size: 16px;
-  margin: 10px 0;
-}
-
-header .btn {
-  display: inline-block;
-  background-color: #1a8f63;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 5px;
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  list-style: none;
   margin-top: 10px;
+}
+
+.nav-links a {
   font-size: 14px;
+  color: var(--text-color);
 }
 
-header .btn:hover {
-  background-color: #146c4a;
+/*   ======   Section Hero   ======   */
+#hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+  padding: 30px 20px;
 }
 
-.socials {
-  margin-top: 15px;
-}
-
-.socials a {
-  margin: 0 5px;
-  font-size: 14px;
-  color: #dcdcdc;
+#hero p {
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  line-height: 1.16;
+  margin: 10px 0;
+  text-transform: uppercase;
+  max-width: 320px;
+  text-align: start;
 }
 
 /* Секції */
 section {
   padding: 20px;
-  background-color: #2b2b2b;
+  background-color: var(--header-bg-color);
   margin: 10px 0;
   border-radius: 8px;
 }
 
+.highlight {
+  color: var(--text-color-highlight);
+}
+
 section h2 {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 24px;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+/* ======   Section About Me   =======  */
+#about {
+  padding: 20px;
+  background-color: var(--header-bg-color);
+  margin: 20px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#about h2 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-img {
+  max-width: 200px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.bio,
+.education,
+.role {
+  background-color: var(--header-bg-color);
+  padding: 15px;
+  border-radius: 5px;
+  text-align: left;
+  color: var(--text-color);
+  width: 100%;
+  max-width: 800px;
+}
+
+.bio h3,
+.education h3,
+.role h3 {
+  font-size: 22px;
+  color: var(--primary-color);
   margin-bottom: 10px;
-  color: #1a8f63;
 }
 
-/* Розділ About */
-#about p {
-  margin: 10px 0;
+.bio p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
 }
 
-/* Освіта */
-#education ul {
+.education ul,
+.role ul {
   list-style: none;
   padding-left: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-#education li {
-  margin: 10px 0;
-  font-size: 14px;
+.education li,
+.role li {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 8px;
 }
 
-/* Ролі/Навички */
+@media (min-width: 768px) {
+  .about-content {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .about-img {
+    margin-right: 20px;
+    margin-bottom: 0;
+  }
+
+  .bio,
+  .education,
+  .role {
+    width: calc(33.333% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+
+/* Розділ Навички */
 #skills ul {
   list-style: none;
   padding-left: 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
 }
 
 #skills li {
   background-color: #3a3a3a;
-  color: #dcdcdc;
+  color: var(--text-color);
   padding: 8px;
-  margin: 5px;
   border-radius: 5px;
   font-size: 14px;
 }
 
-/* Проекти */
+/* Розділ Проекти */
 #projects .project {
-  background-color: #333;
+  background-color: var(--bg-color-light);
   padding: 15px;
-  margin-bottom: 10px;
   border-radius: 5px;
   text-align: center;
-  color: #dcdcdc;
+  color: var(--text-color);
+  margin-bottom: 15px;
 }
 
 #projects .project h3 {
-  font-size: 16px;
-  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 #projects .btn {
-  display: block;
-  text-align: center;
-  background-color: #1a8f63;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  margin: 0 auto;
+  display: inline-flex;
+  justify-content: center;
   width: 80%;
 }
 
-#projects .btn:hover {
-  background-color: #146c4a;
+/* =====   Section Benefits of Working with Me   ====== */
+
+#benefits {
+  padding: 20px;
+  background-color: var(--header-bg-color);
+  margin: 20px 0;
+  border-radius: 8px;
+  text-align: left;
 }
 
-/* Переваги */
-#benefits ul {
-  list-style: none;
-  padding-left: 0;
+#benefits h2 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-#benefits li {
-  margin: 15px 0;
-  font-size: 14px;
+.benefit {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-#benefits li strong {
-  color: #1a8f63;
+.benefit .icon {
+  flex-shrink: 0;
+}
+
+.benefit .icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--primary-color);
+}
+
+.benefit-content {
+  max-width: 800px;
+}
+
+.benefit-content h3 {
+  font-size: 22px;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.benefit-content p {
+  font-size: 16px;
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
 /* Часті питання */
 .faq-item h3 {
   font-size: 16px;
-  color: #1a8f63;
+  color: var(--primary-color);
 }
 
 .faq-item p {
@@ -204,9 +401,9 @@ section h2 {
   background-color: #3a3a3a;
   padding: 15px;
   border-radius: 5px;
-  font-size: 14px;
   font-style: italic;
-  color: #dcdcdc;
+  color: var(--text-color);
+  margin: 10px 0;
 }
 
 /* Контактна форма */
@@ -218,7 +415,7 @@ section h2 {
 
 #contact label {
   font-size: 14px;
-  color: #666;
+  color: var(--text-color);
 }
 
 #contact input,
@@ -229,13 +426,13 @@ section h2 {
   border-radius: 5px;
   font-size: 14px;
   background-color: #3a3a3a;
-  color: #dcdcdc;
+  color: var(--text-color);
 }
 
 #contact button {
   padding: 10px;
-  background-color: #1a8f63;
-  color: #fff;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
   border: none;
   border-radius: 5px;
   font-size: 14px;
@@ -250,8 +447,8 @@ section h2 {
 footer {
   text-align: center;
   padding: 20px;
-  background-color: #333;
-  color: #dcdcdc;
+  background-color: var(--bg-color-light);
+  color: var(--text-color);
 }
 
 footer p {
@@ -260,7 +457,7 @@ footer p {
 }
 
 footer .socials a {
-  color: #dcdcdc;
+  color: var(--text-color);
   margin: 0 5px;
   font-size: 14px;
 }
@@ -271,86 +468,40 @@ footer .socials a:hover {
 
 /* --- Медіа-запити для десктопної версії --- */
 @media (min-width: 1280px) {
-  /* Централізація основного контейнера */
   body {
     margin: 0 auto;
     width: 90%;
     max-width: 1280px;
   }
 
-  /* Заголовок */
-  header h1 {
-    font-size: 40px;
-  }
-
-  header p {
-    font-size: 20px;
-  }
-
-  header .btn {
-    font-size: 18px;
-    padding: 12px 24px;
-  }
-
-  /* Триколонковий макет для секцій */
   #about,
-  #education,
-  #skills,
   #projects,
-  #benefits,
-  #faq,
   #contact {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: flex-start;
     justify-content: space-between;
+    align-items: flex-start;
   }
 
-  /* Вирівнювання секцій на 1/3 і 2/3 */
-  #about p,
-  #education ul,
-  #skills ul,
-  #benefits ul,
-  #faq .faq-item,
+  #about .bio,
+  #projects .project,
   #contact form {
-    flex: 1 1 66%; /* Основний текстовий блок займає 2/3 ширини */
+    flex: 1 1 66%;
     padding: 10px;
   }
 
-  /* Лівий блок на 1/3 ширини */
-  #about img,
-  #education img,
-  #skills img {
+  #about img {
     flex: 1 1 30%;
-    max-width: 300px;
-    padding: 10px;
   }
 
-  /* Кнопки вирівняні по правій стороні */
+  #projects .project {
+    flex: 1 1 45%;
+  }
+
   .btn,
   #contact button {
     width: auto;
-    align-self: flex-start;
-  }
-
-  /* Розширення для проектів */
-  #projects .project {
-    flex: 1 1 45%; /* Проекти займають половину ширини в рядку */
-    margin: 20px;
-    text-align: left;
-  }
-
-  #projects .project img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-
-  /* Централізація тексту в розділах */
-  section h2 {
-    text-align: left;
-    font-size: 28px;
   }
 }
 
