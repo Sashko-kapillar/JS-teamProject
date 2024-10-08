@@ -337,33 +337,41 @@ section h2 {
 
 /* =====   Section Benefits of Working with Me   ====== */
 
+/* Секція Benefits of Working with Me */
 #benefits {
   padding: 20px;
   background-color: var(--header-bg-color);
   margin: 20px 0;
   border-radius: 8px;
-  text-align: left;
 }
 
 #benefits h2 {
   font-size: 28px;
   color: var(--primary-color);
-  margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-.benefit {
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.benefit-item {
   display: flex;
   align-items: flex-start;
   gap: 15px;
   margin-bottom: 20px;
 }
 
-.benefit .icon {
+.benefit-item .icon {
   flex-shrink: 0;
 }
 
-.benefit .icon svg {
+.benefit-item .icon svg {
   width: 24px;
   height: 24px;
   fill: var(--primary-color);
@@ -385,57 +393,215 @@ section h2 {
   line-height: 1.6;
 }
 
-/* Часті питання */
-.faq-item h3 {
-  font-size: 16px;
+/* Секція FAQ */
+#faq {
+  padding: 20px;
+  background-color: var(--header-bg-color);
+  margin: 20px 0;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+#faq h2 {
+  font-size: 28px;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  max-width: 224px;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.faq-question h3 {
+  font-size: 18px;
   color: var(--primary-color);
 }
 
-.faq-item p {
-  margin-top: 5px;
-  font-size: 14px;
+.faq-toggle {
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
-/* Відгуки */
-#reviews blockquote {
-  background-color: #3a3a3a;
-  padding: 15px;
-  border-radius: 5px;
-  font-style: italic;
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.faq-answer p {
+  font-size: 16px;
   color: var(--text-color);
-  margin: 10px 0;
+  margin-top: 10px;
 }
 
-/* Контактна форма */
+/* Секція Reviews */
+#reviews {
+  padding: 20px;
+  text-align: center;
+  background-color: var(--header-bg-color);
+  margin: 20px 0;
+  border-radius: 8px;
+}
+
+#reviews h2 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.review {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review blockquote {
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 15px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.reviewer img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Кнопки навігації */
+.review-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.nav-btn {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Зробимо кнопки квадратними з м’якими кутами */
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  color: #333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: #f0f0f0;
+  border-color: #888;
+}
+
+/* Секція Let’s Work Together */
+#contact {
+  padding: 20px;
+  background-color: var(--header-bg-color);
+  margin: 20px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+#contact p {
+  font-size: 16px;
+  color: var(--text-color);
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: var(--text-color);
+  margin: 8px 0;
+}
+
+.contact-info .icon {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
 #contact form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-#contact label {
-  font-size: 14px;
-  color: var(--text-color);
-}
-
 #contact input,
 #contact textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #444;
-  border-radius: 5px;
-  font-size: 14px;
-  background-color: #3a3a3a;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
   color: var(--text-color);
+  background-color: #f0f0f0;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: #888;
 }
 
 #contact button {
-  padding: 10px;
-  background-color: var(--button-bg-color);
-  color: var(--button-text-color);
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: #fff;
   border: none;
-  border-radius: 5px;
-  font-size: 14px;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -443,27 +609,107 @@ section h2 {
   background-color: #146c4a;
 }
 
-/* Footer */
-footer {
-  text-align: center;
+/* Попап */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
   padding: 20px;
-  background-color: var(--bg-color-light);
-  color: var(--text-color);
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
-footer p {
+.popup-content h3 {
+  font-size: 20px;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.popup-content p {
+  font-size: 16px;
+  color: #333;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+/* Footer */
+#footer {
+  padding: 20px;
+  background-color: #f5f5f5;
+  text-align: center;
+}
+
+.footer-logo h2 {
+  font-size: 24px;
+  font-family: Impact, sans-serif;
+  color: #333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: start;
+}
+
+.footer-logo .highlight {
+  color: var(--primary-color);
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+  display: flex;
+  align-items: start;
+  gap: 20px;
+}
+
+.social-links li {
+  display: inline;
+}
+
+.social-links a {
+  font-size: 16px;
+  color: #333;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
   font-size: 14px;
-  margin: 10px 0;
-}
-
-footer .socials a {
-  color: var(--text-color);
-  margin: 0 5px;
-  font-size: 14px;
-}
-
-footer .socials a:hover {
-  color: #aaa;
+  color: #666;
+  margin-top: 10px;
+  max-width: 196px;
+  display: flex;
+  margin: 0 auto;
 }
 
 /* --- Медіа-запити для десктопної версії --- */
