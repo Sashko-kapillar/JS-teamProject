@@ -416,6 +416,8 @@ section h2 {
   margin: 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .faq-item {
@@ -454,7 +456,10 @@ section h2 {
 }
 
 .faq-answer p {
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
   color: var(--text-color);
   margin-top: 10px;
 }
