@@ -82,3 +82,25 @@ document
       document.getElementById("successPopup").style.display = "none";
     }
   });
+
+// Елементи для відкриття та закриття модального меню
+const menuToggle = document.getElementById("menuToggle");
+const modalMenu = document.getElementById("modalMenu");
+const closeMenu = document.getElementById("closeMenu");
+
+// Відкриття меню при натисканні на кнопку гамбургер-меню
+menuToggle.addEventListener("click", () => {
+  modalMenu.classList.add("active");
+});
+
+// Закриття меню при натисканні на хрестик
+closeMenu.addEventListener("click", () => {
+  modalMenu.classList.remove("active");
+});
+
+// Закриття меню при натисканні поза межами меню
+modalMenu.addEventListener("click", (event) => {
+  if (event.target === modalMenu) {
+    modalMenu.classList.remove("active");
+  }
+});

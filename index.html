@@ -11,21 +11,46 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <!-- Головне меню та назва -->
-    <header>
-      <nav>
-        <h2 class="logo">Lloyd <span class="highlight">Jefferson</span></h2>
-        <ul class="nav-links">
-          <li><a href="#about">About me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#benefits">Benefits</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contact">Contacts</a></li>
-        </ul>
-      </nav>
+    <!--   ======   Header   =======   -->
+
+    <header id="header">
+      <div class="header-content">
+        <!-- Логотип -->
+        <div class="logo">
+          <h2>LLOYD<span class="highlight">JEFFERSON</span>.</h2>
+        </div>
+
+        <!-- Меню гамбургер -->
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </header>
 
-    <!-- Головний блок із привітанням та закликом до дії -->
+    <!-- ======   Mоdal window   ====== -->
+
+    <div id="modalMenu" class="modal-menu">
+      <div class="modal-content">
+        <!-- Логотип та кнопка закриття -->
+        <div class="modal-header">
+          <h2>LLOYD<span class="highlight">JEFFERSON</span>.</h2>
+          <button class="close-btn" id="closeMenu" aria-label="Close menu">
+            &times;
+          </button>
+        </div>
+        <!-- Посилання на сторінки -->
+        <nav class="menu-nav">
+          <a href="#about">About me</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contacts</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- =====   Section hero   ===== -->
+
     <section id="hero">
       <h1>Hello, I am <span class="highlight">Fullstack Developer</span></h1>
       <a href="#order" class="btn">
@@ -48,20 +73,21 @@
       </p>
     </section>
 
-    <!-- Секція соціальних мереж -->
-    <section id="socials">
-      <div class="socials">
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">GitHub</a>
-      </div>
+    <!-- =====   Section social   ===== -->
+
+    <section id="social-media">
+      <ul class="social-list">
+        <li><a href="#" target="_blank">Instagram</a></li>
+        <li><a href="#" target="_blank">Facebook</a></li>
+        <li><a href="#" target="_blank">LinkedIn</a></li>
+        <li><a href="#" target="_blank">GitHub</a></li>
+      </ul>
     </section>
 
-    <!-- Секція About Me -->
+    <!-- ======   Section About Me   ====== -->
 
     <section id="about">
-      <h2>About Me</h2>
+      <h2>About <span class="highlight">Me</span></h2>
       <div class="about-content">
         <!-- Зображення -->
         <img
@@ -120,95 +146,53 @@
       </div>
     </section>
 
-    <!-- Секція проектів -->
+    <!-- =======   Section my projects   ====== -->
+
     <section id="projects">
-      <h2>My Projects</h2>
-      <div class="project">
-        <img
-          src="path_to_your_image/wallet_webservice.jpg"
-          alt="Wallet Webservice screenshot"
-          class="project-img"
-        />
-        <h3>Wallet Webservice</h3>
-        <a href="#" class="btn">
-          VISIT
-          <span class="icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-            >
-              <path d="M4 8l4 4 4-4H4z" />
-            </svg>
-          </span>
-        </a>
-      </div>
-      <div class="project">
-        <img
-          src="path_to_your_image/green_harvest.jpg"
-          alt="Green Harvest Webservice screenshot"
-          class="project-img"
-        />
-        <h3>Green Harvest Webservice</h3>
-        <a href="#" class="btn">
-          VISIT
-          <span class="icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-            >
-              <path d="M4 8l4 4 4-4H4z" />
-            </svg>
-          </span>
-        </a>
-      </div>
-      <div class="project">
-        <img
-          src="path_to_your_image/english_excellence.jpg"
-          alt="English Excellence Website screenshot"
-          class="project-img"
-        />
-        <h3>English Excellence Website</h3>
-        <a href="#" class="btn">
-          VISIT
-          <span class="icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-            >
-              <path d="M4 8l4 4 4-4H4z" />
-            </svg>
-          </span>
-        </a>
-      </div>
-      <a href="#" class="btn"
-        >LOAD MORE
-        <span class="icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="currentColor"
-            viewBox="0 0 16 16"
-          >
-            <path d="M4 8l4 4 4-4H4z" />
-          </svg>
-        </span>
-      </a>
+      <h2>My <span class="highlight">Projects</span></h2>
+
+      <ul class="project-list">
+        <li class="project-item">
+          <img
+            src="path_to_your_image/wallet_webservice.jpg"
+            alt="Wallet Webservice screenshot"
+            class="project-img"
+          />
+          <p class="project-tech">React, JavaScript, Node JS, Git</p>
+          <h3>Wallet Webservice</h3>
+          <a href="#" class="project-btn">Visit <span class="arrow">→</span></a>
+        </li>
+
+        <li class="project-item">
+          <img
+            src="path_to_your_image/green_harvest_webservice.jpg"
+            alt="Green Harvest Webservice screenshot"
+            class="project-img"
+          />
+          <p class="project-tech">React, JavaScript, Node JS, Git</p>
+          <h3>Green Harvest Webservice</h3>
+          <a href="#" class="project-btn">Visit <span class="arrow">→</span></a>
+        </li>
+
+        <li class="project-item">
+          <img
+            src="path_to_your_image/english_excellence_website.jpg"
+            alt="English Excellence Website screenshot"
+            class="project-img"
+          />
+          <p class="project-tech">React, JavaScript, Node JS, Git</p>
+          <h3>English Excellence Website</h3>
+          <a href="#" class="project-btn">Visit <span class="arrow">→</span></a>
+        </li>
+      </ul>
+
+      <a href="#" class="load-more">Load More</a>
     </section>
 
     <!--   ====== Section Benefits of Working with Me   ======  -->
 
     <section id="benefits">
-      <h2>Benefits of Working with Me</h2>
+      <h2><span class="highlight">Benefits</span> of Working with Me</h2>
 
       <ul class="benefits-list">
         <li class="benefit-item">
@@ -301,10 +285,10 @@
       </ul>
     </section>
 
-    <!-- Секція Frequently Asked Questions -->
+    <!-- =====   Section Frequently Asked Questions   ====== -->
 
     <section id="faq">
-      <h2>Frequently Asked Questions</h2>
+      <h2>Frequently Asked <span class="highlight">Questions</span></h2>
 
       <ul class="faq-list">
         <li class="faq-item">
@@ -423,7 +407,7 @@
 
     <!-- Секція Let’s Work Together -->
     <section id="contact">
-      <h2>Let’s Work Together</h2>
+      <h2>Let’s <span class="highlight">Work Together</span></h2>
       <p>Contact me to transform your ideas into exceptional solutions.</p>
 
       <div class="contact-info">
