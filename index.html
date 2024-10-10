@@ -57,7 +57,7 @@
         <span class="highlight">Fullstack Developer</span>
       </h1>
 
-      <a href="#order" class="hero-btn">
+      <a href="#order" class="hero-btn hero-btn-text">
         <span class="arrow">→</span> Order the Project
       </a>
 
@@ -66,7 +66,8 @@
         functional websites that reflect each client’s unique personality.
       </p>
 
-      <!-- Соціальні мережі -->
+      <!-- Social -->
+
       <ul class="social-list">
         <li><a href="#" target="_blank">Instagram</a></li>
         <li><a href="#" target="_blank">Facebook</a></li>
@@ -134,6 +135,21 @@
             <li>Blender (enjoy)</li>
           </ul>
         </div>
+      </div>
+    </section>
+
+    <!-- =====   Section Tech Skills   ====== -->
+
+    <section id="tech-skills">
+      <div class="tech-marquee">
+        <p>
+          JavaScript • React • Node.js • TypeScript • HTML • CSS • Git • Blender
+        </p>
+      </div>
+      <div class="tech-marquee reverse skewed">
+        <p>
+          JavaScript • React • Node.js • TypeScript • HTML • CSS • Git • Blender
+        </p>
       </div>
     </section>
 
@@ -396,24 +412,57 @@
       </div>
     </section>
 
-    <!-- Секція Let’s Work Together -->
-    <section id="contact">
+    <!-- =====   Section Let’s Work Together   ====== -->
+
+    <!-- Секція Work Together -->
+    <section id="work-together">
       <h2>Let’s <span class="highlight">Work Together</span></h2>
-      <p>Contact me to transform your ideas into exceptional solutions.</p>
+      <p class="uppercase">
+        Contact me to transform your ideas into exceptional solutions.
+      </p>
 
-      <div class="contact-info">
-        <p><span class="icon">📞</span> +38 090 456 78 90</p>
-        <p><span class="icon">✉️</span> lloydjefferson@gmail.com</p>
-        <p><span class="icon">📍</span> USA, New York</p>
-      </div>
+      <address class="contact-info">
+        <ul>
+          <li>
+            <span class="icon">
+              <!-- Використання символу для іконки телефону -->
+              <svg width="20" height="20">
+                <use href="./images/icon.svg#icon-phone"></use>
+              </svg>
+            </span>
+            <a href="tel:+380904567890">+38 090 456 78 90</a>
+          </li>
+          <li>
+            <span class="icon">
+              <!-- Використання символу для іконки email -->
+              <svg width="20" height="20">
+                <use href="./images/icon.svg#icon-email"></use>
+              </svg>
+            </span>
+            <a href="mailto:lloydjefferson@gmail.com"
+              >lloydjefferson@gmail.com</a
+            >
+          </li>
+          <li>
+            <span class="icon">
+              <!-- Використання символу для іконки локації -->
+              <svg width="20" height="20">
+                <use href="./images/icon.svg#icon-geo"></use>
+              </svg>
+            </span>
+            USA, New York
+          </li>
+        </ul>
+      </address>
 
-      <form action="#" method="post">
+      <form id="contactForm" action="#" method="post">
         <input
           type="email"
           id="email"
           name="email"
           placeholder="Your email*"
           required
+          pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
         />
         <textarea
           id="message"
@@ -424,6 +473,8 @@
         <button type="submit">SEND MESSAGE</button>
       </form>
     </section>
+
+    <!-- Попап для успішного повідомлення -->
     <div id="successPopup" class="popup">
       <div class="popup-content">
         <button class="close-btn">&times;</button>
@@ -431,6 +482,17 @@
         <p>
           The manager will contact you shortly to discuss further details and
           opportunities for cooperation. Please stay in touch.
+        </p>
+      </div>
+    </div>
+
+    <!-- Попап для повідомлення про помилку -->
+    <div id="errorPopup" class="popup">
+      <div class="popup-content">
+        <button class="close-btn">&times;</button>
+        <h3>Are you crazy??</h3>
+        <p>
+          There was an error processing your request. Please try again later.
         </p>
       </div>
     </div>
@@ -451,6 +513,7 @@
       <p class="copyright">&copy; Copyright 2024. Made by Lloyd Jefferson</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

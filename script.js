@@ -28,60 +28,50 @@ document.querySelectorAll(".faq-toggle").forEach((button) => {
   });
 });
 
-// JavaScript для обробки форми та показу попап-вікна
-document
-  .getElementById("contactForm")
-  .addEventListener("submit", function (event) {
-    event.preventDefault(); // Запобігає перезавантаженню сторінки
+const form = document.getElementById("contactForm");
 
-    // Отримуємо значення полів форми
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+// Відправка форми та обробка відповіді сервера
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-    // Формуємо об'єкт даних для відправки
-    const formData = {
-      email: email,
-      message: message,
-    };
+  const formData = {
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
 
-    // Надсилаємо дані на сервер за допомогою Fetch API
-    fetch("https://example.com/submit", {
-      // Замініть URL на свій серверний ендпоінт
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
+  axios
+    .post("https://example.com/submit", formData)
+    .then((response) => {
+      if (response.data.success) {
+        // Показуємо успішний попап
+        document.getElementById("successPopup").style.display = "flex";
+      } else {
+        // Показуємо попап з помилкою
+        document.getElementById("errorPopup").style.display = "flex";
+      }
     })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.success) {
-          // Якщо відправка успішна, показуємо попап
-          document.getElementById("successPopup").style.display = "flex";
-        } else {
-          // Тут можна додати обробку помилки
-          alert("There was an error sending your message. Please try again.");
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-        alert("There was an error sending your message. Please try again.");
-      });
-  });
+    .catch((error) => {
+      console.error("Error:", error);
+      // Показуємо попап з помилкою
+      document.getElementById("errorPopup").style.display = "flex";
+    });
+});
 
-// Закриття попап-вікна
-document.querySelector(".close-btn").addEventListener("click", function () {
-  document.getElementById("successPopup").style.display = "none";
+// Закриття попап-вікон
+document.querySelectorAll(".close-btn").forEach((button) => {
+  button.addEventListener("click", function () {
+    button.closest(".popup").style.display = "none";
+  });
 });
 
 // Закриття попап-вікна при натисканні поза його межами
-document
-  .getElementById("successPopup")
-  .addEventListener("click", function (event) {
-    if (event.target === document.getElementById("successPopup")) {
-      document.getElementById("successPopup").style.display = "none";
+document.querySelectorAll(".popup").forEach((popup) => {
+  popup.addEventListener("click", function (event) {
+    if (event.target === popup) {
+      popup.style.display = "none";
     }
   });
+});
 
 // Елементи для відкриття та закриття модального меню
 const menuToggle = document.getElementById("menuToggle");

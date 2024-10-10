@@ -8,9 +8,11 @@
 :root {
   --primary-color: #292929;
   --bg-color-light: #f0f0f0;
+  --bg-color-light-grey: #e4e5e6;
   --text-color-light: #333333;
   --header-bg-color-light: #f5f5f5;
-  --text-color-highlight: #00b068;
+  --accet-green: #00b068;
+  --hover-green: #009156;
   --bg-color-social-list: #e4e5e6;
 
   --bg-color-dark: #1a1a1a;
@@ -80,6 +82,7 @@ h3 {
 
 ul {
   display: flex;
+  list-style: none;
 }
 
 /* Посилання */
@@ -139,18 +142,19 @@ a:hover {
 }
 
 .highlight {
-  color: var(--text-color-highlight);
+  color: var(--accet-green);
 }
 
 /*  =====   Header   ======  */
 
 #header {
   padding: 15px 20px;
-  background-color: #ffffff;
+  background-color: var(--bg-color-light);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 64px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .header-content {
@@ -186,7 +190,7 @@ a:hover {
 
 .menu-toggle span {
   display: block;
-  height: 3px;
+  height: 2px;
   width: 100%;
   background-color: #333;
   border-radius: 2px;
@@ -233,7 +237,7 @@ a:hover {
 }
 
 .modal-header .highlight {
-  color: var(--primary-color);
+  color: var(--accet-green);
 }
 
 .close-btn {
@@ -288,15 +292,21 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
-  background-color: #e0f0e9;
-  color: var(--primary-color);
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
+  padding: 32px 24px;
+  background-color: #bcdfd1;
   margin-top: 15px;
   transition: background-color 0.3s;
+  border-radius: 8px;
+}
+
+.hero-btn-text {
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
 .hero-btn .arrow {
@@ -432,22 +442,69 @@ a:hover {
   }
 }
 
-/* Розділ Навички */
-#skills ul {
-  list-style: none;
-  padding-left: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 8px;
+/* Секція Tech Skills */
+
+#tech-skills {
+  background-color: var(--bg-color-light-grey);
+  overflow: hidden;
 }
 
-#skills li {
-  background-color: #3a3a3a;
-  color: var(--text-color);
-  padding: 8px;
-  border-radius: 5px;
-  font-size: 14px;
+.tech-marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  padding: 15px 0;
+  color: var(--primary-color);
+  background-color: #bcdfd1;
+  animation: marquee 20s linear infinite;
+}
+
+.tech-marquee p {
+  display: inline-block;
+  padding-left: 100%;
+}
+
+.tech-marquee.reverse {
+  background-color: #e0f0e9;
+  animation: marquee-reverse 20s linear infinite;
+}
+
+/* Стиль для тексту всередині маркованої стрічки */
+.tech-marquee p {
+  font-weight: bold;
+  color: #1a8f63;
+}
+
+.tech-marquee p::before {
+  content: " • ";
+  color: #333;
+}
+
+/* Анімація для прямого руху */
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Анімація для зворотного руху */
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Додання нахилу нижньої стрічки */
+.tech-marquee.skewed {
+  transform: rotate(-2deg);
 }
 
 /* =====   Section My Projects   ====== */
@@ -745,78 +802,154 @@ a:hover {
   border-color: #888;
 }
 
-/* Секція Let’s Work Together */
-#contact {
-  padding: 20px;
-  background-color: var(--header-bg-color);
-  margin: 20px 0;
-  border-radius: 8px;
+/* =====   Section Work Together   ===== */
+
+#work-together {
+  padding: 40px 20px;
   text-align: center;
+  background-color: var(--bg-color-light);
+  background-image: url("../images/Decor-bg.jpg");
+  background-size: cover; /* Зображення масштабуватиметься, щоб покрити всю секцію */
+  background-position: center; /* Зображення центруватиметься */
+  background-repeat: no-repeat; /* Зображення не повторюватиметься */
 }
 
-#contact h2 {
-  font-size: 28px;
-  color: var(--primary-color);
+#work-together h2 {
+  margin-bottom: 40px;
+  text-align: left;
+
+  #work-together .highlight {
+    color: var(--accet-green);
+  }
+
+  #work-together p {
+    font-size: 16px;
+    color: var(--black);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    max-width: 320px;
+  }
+}
+
+/* Контактна інформація */
+.contact-info {
+  margin-bottom: 20px;
+  font-style: normal; /* Відміняємо курсив для тега <address> */
+}
+
+.contact-info ul {
+  flex-direction: column;
+  align-items: start;
+}
+
+.contact-info li {
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 10px;
 }
 
-#contact p {
-  font-size: 16px;
-  color: var(--text-color);
-  margin-bottom: 20px;
-}
-
-.contact-info {
-  margin-bottom: 20px;
-}
-
-.contact-info p {
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  color: var(--text-color);
-  margin: 8px 0;
-}
-
 .contact-info .icon {
-  font-size: 18px;
-  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  fill: #333;
 }
 
-#contact form {
+.contact-info .icon svg {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  fill: var(--accet-green);
+}
+
+.contact-info a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.contact-info a:hover {
+  color: var(--accet-green);
+  text-decoration: none;
+}
+
+/* Стилізація форми */
+#contactForm {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  gap: 15px;
 }
 
-#contact input,
-#contact textarea {
+#contactForm input,
+#contactForm textarea {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  max-width: 400px;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   font-size: 16px;
-  color: var(--text-color);
-  background-color: #f0f0f0;
+  color: #333;
+  background-color: #f9f9f9;
 }
 
-#contact input::placeholder,
-#contact textarea::placeholder {
-  color: #888;
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+  color: #aaa;
 }
 
-#contact button {
+#contactForm textarea {
+  height: 120px;
+  resize: none;
+}
+
+#contactForm button {
+  width: 100%;
+  max-width: 400px;
   padding: 12px;
-  background-color: var(--primary-color);
+  background-color: var(--accet-green);
   color: #fff;
-  border: none;
-  border-radius: 8px;
   font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  font-family: var(--font-family);
+  letter-spacing: 0.03em;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-#contact button:hover {
-  background-color: #146c4a;
+#contactForm button:hover {
+  background-color: var(--hover-green);
+}
+
+input:invalid {
+  border-color: red;
+}
+
+input:valid {
+  border-color: green;
+}
+
+.uppercase {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--black);
+  max-width: 320px;
+  text-align: left;
+  margin-bottom: 32px;
 }
 
 /* Попап */
