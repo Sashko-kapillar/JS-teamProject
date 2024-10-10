@@ -9,8 +9,6 @@
   --primary-color: #292929;
   --bg-color-light: #f0f0f0;
   --bg-color-light-grey: #e4e5e6;
-  --text-color-light: #333333;
-  --header-bg-color-light: #f5f5f5;
   --accet-green: #00b068;
   --hover-green: #009156;
   --bg-color-social-list: #e4e5e6;
@@ -977,13 +975,23 @@ input:valid {
 
 .popup-content h3 {
   font-size: 20px;
-  color: var(--primary-color);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--accet-green);
+  max-width: 256px;
   margin-bottom: 10px;
 }
 
 .popup-content p {
+  font-weight: 300;
   font-size: 16px;
-  color: #333;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: var(--black);
 }
 
 .close-btn {

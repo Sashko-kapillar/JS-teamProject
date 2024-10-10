@@ -1,5 +1,5 @@
 // Елемент кнопки для перемикання теми
-const toggleThemeBtn = document.getElementById("themeToggle");
+/* const toggleThemeBtn = document.getElementById("themeToggle");
 
 // Функція перемикання теми
 toggleThemeBtn.addEventListener("click", () => {
@@ -11,22 +11,22 @@ toggleThemeBtn.addEventListener("click", () => {
   } else {
     toggleThemeBtn.textContent = "Switch to Dark Theme";
   }
-});
+}); */
 
 // JavaScript для FAQ секції
-document.querySelectorAll(".faq-toggle").forEach((button) => {
-  button.addEventListener("click", () => {
-    const faqAnswer = button.parentElement.nextElementSibling;
+// document.querySelectorAll(".faq-toggle").forEach((button) => {
+//   button.addEventListener("click", () => {
+//     const faqAnswer = button.parentElement.nextElementSibling;
 
-    // Перемикаємо видимість відповіді
-    faqAnswer.style.maxHeight = faqAnswer.style.maxHeight
-      ? null
-      : faqAnswer.scrollHeight + "px";
+//     // Перемикаємо видимість відповіді
+//     faqAnswer.style.maxHeight = faqAnswer.style.maxHeight
+//       ? null
+//       : faqAnswer.scrollHeight + "px";
 
-    // Змінюємо текст кнопки
-    button.textContent = button.textContent === "+" ? "-" : "+";
-  });
-});
+//     // Змінюємо текст кнопки
+//     button.textContent = button.textContent === "+" ? "-" : "+";
+//   });
+// });
 
 const form = document.getElementById("contactForm");
 
@@ -36,24 +36,38 @@ form.addEventListener("submit", function (event) {
 
   const formData = {
     email: document.getElementById("email").value,
-    message: document.getElementById("message").value,
+    comment: document.getElementById("message").value,
   };
 
-  axios
-    .post("https://example.com/submit", formData)
+  fetch("https://portfolio-js.b.goit.study/api/requests", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  })
     .then((response) => {
-      if (response.data.success) {
-        // Показуємо успішний попап
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      if (data.title && data.message) {
+        document.querySelector("#successPopup h3").textContent = data.title;
+        document.querySelector("#successPopup p").textContent = data.message;
         document.getElementById("successPopup").style.display = "flex";
+        form.reset(); // Очищення форми при успішній відправці
       } else {
-        // Показуємо попап з помилкою
         document.getElementById("errorPopup").style.display = "flex";
       }
     })
     .catch((error) => {
       console.error("Error:", error);
-      // Показуємо попап з помилкою
       document.getElementById("errorPopup").style.display = "flex";
+      // Підтримка введених даних при невдалій відправці
+      document.getElementById("email").value = formData.email;
+      document.getElementById("message").value = formData.comment;
     });
 });
 
